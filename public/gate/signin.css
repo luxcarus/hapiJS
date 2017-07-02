@@ -1,0 +1,10 @@
+form > div {
+  position: relative;
+}
+form > div > label {
+  position: absolute;
+}
+
+.test {
+  color:palevioletred;
+}

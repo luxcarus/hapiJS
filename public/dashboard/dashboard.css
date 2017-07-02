@@ -1,0 +1,13 @@
+.box1{
+  width: 100px; height: 100px;
+  background-color: plum;
+}
+.box2{
+  width: 100px; height: 100px;
+  background-color:blueviolet;
+}
+
+.stars{
+  font-size: 10px;
+  color: red;
+}
