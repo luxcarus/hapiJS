@@ -16,7 +16,7 @@ const server = new Hapi.Server({
 		}
 	}
 });
-server.connection({port: Config.port, host: 'localhost'});
+server.connection({port: Config.port, host: '0.0.0.0'});
 
 server.register(require('inert'), (err) => {
 	if (err) throw err
