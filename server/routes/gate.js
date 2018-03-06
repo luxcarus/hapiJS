@@ -3,7 +3,8 @@ module.exports = {
 		method: 'GET',
 		path: '/',
 		handler: function (request, reply) {
-			reply.file('gate/signin.html')
+			// reply.file('gate/signin.html')
+			reply.file('/')
 		}
   },
   signin: {
