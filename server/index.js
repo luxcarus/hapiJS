@@ -6,7 +6,7 @@ const Path = require('path')
 const Config = require('./config')
 const Routes = require('./routes')
 
-const $debug = Config.debug
+const {debug, host, port} = Config
 const server = new Hapi.Server({
 	connections: {
 		routes: {
@@ -16,7 +16,8 @@ const server = new Hapi.Server({
 		}
 	}
 });
-server.connection({port: Config.port, host: '45.120.65.33'});a
+// server.connection({port: Config.port, host: '45.120.65.33'});
+server.connection({port, host});
 
 server.register(require('inert'), (err) => {
 	if (err) throw err
