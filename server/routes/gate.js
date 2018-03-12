@@ -1,3 +1,4 @@
+const Path = require('path')
 module.exports = {
   index: {
 		method: 'GET',
