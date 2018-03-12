@@ -5,7 +5,8 @@ module.exports = {
 		handler: function (request, reply) {
 			// reply.file('gate/signin.html')
 			// reply.file('/')
-			reply('hello world ~~~ *')
+			// reply('hello world ~~~ *')
+			Path.join(__dirname, 'gate/signin.html')
 		}
   },
   signin: {
