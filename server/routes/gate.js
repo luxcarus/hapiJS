@@ -7,8 +7,8 @@ module.exports = {
 			// reply.file('gate/signin.html')
 			// reply.file('/')
 			// reply('hello world ~~~ *')
-			console.log(Path.join(__dirname, 'gate/signin.html'))
-			reply.file(Path.join(__dirname, 'gate/signin.html'))
+			console.log(Path.resolve(__dirname, 'gate/signin.html'))
+			reply.file(Path.resolve(__dirname, 'gate/signin.html'))
 		}
   },
   signin: {
