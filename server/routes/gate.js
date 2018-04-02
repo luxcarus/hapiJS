@@ -19,7 +19,8 @@ module.exports = {
 		method: 'GET',
 		path: '/signin',
 		handler: function (request, reply) {
-			reply.file('gate/signin.html')
+			reply('gate/signin.html')
+			// reply.file('gate/signin.html')
 		}
 	} 
 }
