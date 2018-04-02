@@ -1,4 +1,5 @@
-const Path = require('path')
+// const path = require('path')
+const fs = require('fs')
 module.exports = {
   index: {
 		method: 'GET',
@@ -6,7 +7,9 @@ module.exports = {
 		handler: function (request, reply) {
 			// reply.file('gate/signin.html')
 			console.log(123)
-			console.log(reply.file('gate/signin.html'))
+			console.log(fs.existsSync('/home/luxlee/servers/node/hapi/10311/public/gate/signin.html'))
+			// console.log(reply.file('gate/signin.html'))
+			reply.file('gate/signin.html')
 			// console.log(reply.view('gate/signin.html'))
 
 			// reply.file('/')
