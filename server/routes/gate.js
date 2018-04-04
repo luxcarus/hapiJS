@@ -7,9 +7,9 @@ module.exports = {
 		handler: function (request, reply) {
 			// reply.file('gate/signin.html')
 			console.log(123)
-			console.log(fs.existsSync('/home/luxlee/servers/node/hapi/10311/public/gate/signin.html'))
+			console.log(fs.existsSync('/home/luxlee/servers/node/hapi/10311/public/gate/signIn.html'))
 			// console.log(reply.file('gate/signin.html'))
-			reply.file('gate/signin.html')
+			reply.file('gate/signIn.html')
 			// console.log(reply.view('gate/signin.html'))
 
 			// reply.file('/')
