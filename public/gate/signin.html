@@ -7,13 +7,21 @@
     <link href="static/gate/signin.css" rel="stylesheet">
   </head>
   <body>
-    <label for="id">id</label>
-    <input type="text" name="id" placeholder="id">
-    
-    <div class="test">test123</div>
+		<h4>please, sign in ~ </h4>
+		<ul>
+			<li><input type="text" name="id" placeholder="id"></li>
+			<li><input type="text" name="passwd" placeholder="password"></li>
+			<li><button id="signIn">sign in</button></li>
+		</ul>
 
   </body>
 
   <script src="static/utils/http.js"></script>
-
+  <script>
+    const sign = document.querySelector('#signIn')
+		console.log(sign)
+		sign.addEventListener('click', d => {
+			console.log('click')
+		})
+	</script>
 </html>
