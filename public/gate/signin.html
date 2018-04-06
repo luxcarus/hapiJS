@@ -21,7 +21,30 @@
     const sign = document.querySelector('#signIn')
 		console.log(sign)
 		sign.addEventListener('click', d => {
-			console.log('click')
+      console.log('click')
+      
+      fetch("http://localhost:10311/test", {
+        method: "POST",
+        //headers: {
+        //  "Content-Type": "application/x-www-form-urlencoded"
+        //},
+        //body: "firstName=Nikhil&favColor=blue&password=easytoguess"
+      }).then(function(res) {
+        if (res.ok) {
+          console.log("Perfect! Your settings are saved.");
+          res.json().then(function(data) {
+            console.log(data);
+          });
+        } else if (res.status == 401) {
+          console.log("Oops! You are not authorized.");
+        }
+      }, function(e) {
+        console.log("Error submitting form!");
+      });
+
+
+
+
 		})
 	</script>
 </html>
