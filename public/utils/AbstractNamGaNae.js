@@ -1,7 +1,4 @@
-console.log('log from http.js')
-
-// export default class Http {
-class Http {
+class AbstractNamGaNae {
   constructor () {
     this.host = 'http://localhost:10311'
     this.path
@@ -12,24 +9,21 @@ class Http {
     this.headers 
   }
   send () {
+    console.log(this.body)
     fetch(`${this.host}/${this.path}`, {
       method: this.method,
       headers: {"Content-Type": "application/json"},
-      body: this.body
+      body: JSON.stringify(this.body)
     }).then(res => {
       if (res.ok) {
         res.json().then(data => {
-          console.log(data)
           this.scb(data)
         });
       } else if (res.status == 401) {
-        console.log("Oops! You are not authorized.");
         this.ecb(res)
       } else if (res.status == 404) {
-        console.log("Oops! 404")
         this.ecb(res)
       } else if (res.status == 500) {
-        console.log("Oops! 500")
         this.ecb(res)
       }
     }, e => {
@@ -37,11 +31,25 @@ class Http {
       this.ecb(res)
     })
   }
-
-  scb () {}
-  ecb () {}
-  tcb () {}
-
+  scb (data) {
+    this.handler(data)(data)
+  }
+  ecb (e) {
+    console.log(e)
+  }
+  tcb (t) {
+    console.log(t)
+  }
+  handler (data) {
+    switch (data.result) {
+      case 0: return this.normal
+      case 1: return this.abnormal
+      case 2: return this.serverIssue
+    }
+  }
+  normal () {}
+  abnormal () {}
+  serverIssue () {}
 	setHost (_) {
 		this.level = _
 		return this
@@ -54,8 +62,8 @@ class Http {
 		this.mothod = _
 		return this
 	}
-  setRequestPayload (_) {
-    this.requestPayload = _
+  setBody (_) {
+    this.body = _
     return this
   }
 	setData (_) {
@@ -67,23 +75,3 @@ class Http {
 		return this
 	}
 }
-
-
-// fetch("http://localhost:10311/test", {
-//   method: "POST",
-  // headers: {
-  //  "Content-Type": "application/x-www-form-urlencoded"
-  // },
-  // body: "firstName=Nikhil&favColor=blue&password=easytoguess"
-// }).then(function(res) {
-//   if (res.ok) {
-//     console.log("Perfect! Your settings are saved.");
-//     res.json().then(function(data) {
-//       console.log(data);
-//     });
-//   } else if (res.status == 401) {
-//     console.log("Oops! You are not authorized.");
-//   }
-// }, function(e) {
-//   console.log("Error submitting form!");
-// })

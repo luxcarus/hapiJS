@@ -9,42 +9,24 @@
   <body>
 		<h4>please, sign in ~ </h4>
 		<ul>
-			<li><input type="text" name="id" placeholder="id"></li>
-			<li><input type="text" name="passwd" placeholder="password"></li>
+			<li><input type="text" id="id" name="id" placeholder="id" value="aaa"></li>
+			<li><input type="password" id="passwd" name="passwd" placeholder="password" value="1234"></li>
 			<li><button id="signIn">sign in</button></li>
 		</ul>
 
   </body>
-
-  <script src="static/utils/http.js"></script>
+  <script src="static/utils/AbstractNamGaNae.js"></script>
+  <script src="static/gate/Signin.js"></script>
   <script>
+    const signin = new Signin(this)
     const sign = document.querySelector('#signIn')
-		console.log(sign)
-		sign.addEventListener('click', d => {
-      console.log('click')
-      
-      fetch("http://localhost:10311/test", {
-        method: "POST",
-        //headers: {
-        //  "Content-Type": "application/x-www-form-urlencoded"
-        //},
-        //body: "firstName=Nikhil&favColor=blue&password=easytoguess"
-      }).then(function(res) {
-        if (res.ok) {
-          console.log("Perfect! Your settings are saved.");
-          res.json().then(function(data) {
-            console.log(data);
-          });
-        } else if (res.status == 401) {
-          console.log("Oops! You are not authorized.");
+    sign.addEventListener('click', d => {
+      signin.request({
+        parameter: {
+          id: document.querySelector('#id').value,
+          passwd: document.querySelector('#passwd').value
         }
-      }, function(e) {
-        console.log("Error submitting form!");
-      });
-
-
-
-
-		})
-	</script>
+      })
+    })
+  </script>
 </html>

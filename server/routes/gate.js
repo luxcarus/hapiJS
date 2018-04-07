@@ -9,10 +9,16 @@ module.exports = {
 		}
   },
   signin: {
-		method: 'GET',
+		method: 'POST',
 		path: '/signin',
 		handler: function (request, reply) {
-			reply('gate/signin.html')
+			let {id, passwd, result} = request.payload
+			if (id === 'aaa' && passwd === '1234') {
+				result = {result: 0, data: {name: 'NamGaNae'}}
+			} else {
+				result = {result: 1, errCode: 'E0001', errDetail: 'G0001'}
+			}
+			reply(result)
 		}
-	} 
+	}
 }
