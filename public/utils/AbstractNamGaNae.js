@@ -1,6 +1,6 @@
 class AbstractNamGaNae {
   constructor () {
-    this.host = 'http://localhost:10311'
+    this.host = 'http://45.120.65.33:10311'
     this.path
     this.method = 'POST'
     this.body
