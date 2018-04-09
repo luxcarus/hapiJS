@@ -28,7 +28,7 @@ class AbstractNamGaNae {
       }
     }, e => {
       console.log("Error submitting form!")
-      this.ecb(res)
+      this.ecb(e)
     })
   }
   scb (data) {

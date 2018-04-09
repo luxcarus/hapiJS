@@ -8,6 +8,7 @@ class Signin extends AbstractNamGaNae {
     this.setBody(parameter).send()
   }
   normal (data) {
+    console.log('--00')
     console.log(data)
     window.location.href = '/dashboard'
   }

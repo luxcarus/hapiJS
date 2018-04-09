@@ -12,6 +12,7 @@ module.exports = {
 		method: 'POST',
 		path: '/signin',
 		handler: function (request, reply) {
+			console.log(123)
 			let {id, passwd, result} = request.payload
 			if (id === 'aaa' && passwd === '1234') {
 				result = {result: 0, data: {name: 'NamGaNae'}}
